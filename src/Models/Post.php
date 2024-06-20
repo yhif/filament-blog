@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\URL;
 
 class Post extends Model
 {
@@ -132,6 +133,11 @@ class Post extends Model
 
     protected function getFeaturePhotoAttribute()
     {
+        if (config('filesystems.disks.' . config('filament.default_filesystem_disk') . '.driver') === 's3') {
+
+            return URL::assetFrom(config('filesystems.disks.' . config('filament.default_filesystem_disk') .'.url'), $this->cover_photo_path);
+        }
+
         return asset('storage/'.$this->cover_photo_path);
     }
 

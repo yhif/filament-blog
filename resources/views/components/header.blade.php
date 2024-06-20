@@ -6,20 +6,20 @@
                 <div class="flex items-center gap-x-10">
                     <a href="{{config('filamentblog.route.home.url') ?? config('app.url')}}">
                         @if($logo)
-                        <img src="{{ $logo }}" alt="{{ $title }}" class="max-h-[60px]" />
+                        <img src="{{ $logo }}" alt="{{ config('filamentblog.menu.website') ?? $title }}" class="max-h-[60px]" />
                         @else
                         <strong class="text-2xl  text-primary-600">
-                            {{ $title ?: 'Firefly Blog' }}
+                            {{ config('filamentblog.menu.website') ?? $title }}
                         </strong>
                         @endif
                     </a>
                     <div class="hidden gap-x-10 sm:flex">
                         <a href="{{ route('filamentblog.post.index') }}" class="font-semibold text-md hover:text-primary-600">
-                            <span>Blogs</span>
+                            <span>{{ config('filamentblog.menu.title') ?? 'Blogs' }}</span>
                         </a>
                         <div class="relative group">
                             <button class="flex items-center justify-center font-semibold text-md hover:text-primary-600 gap-x-2">
-                                <span>Categories</span>
+                                <span>{{ config('filamentblog.menu.category') ?? 'Categories' }}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4" viewBox="0 0 24 24">
                                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m19 9l-7 6l-7-6" />
                                 </svg>

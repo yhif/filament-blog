@@ -2,7 +2,7 @@
     <section class="py-10">
         <header class="container mx-auto px-6">
             <h3 class="inherits-color text-balance leading-tighter relative z-10 text-3xl font-semibold tracking-tight">
-                Latest News / Blogs
+                Latest News / {{ config('filamentblog.menu.title') ?? 'Blogs' }}
             </h3>
         </header>
     </section>
